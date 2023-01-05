@@ -1,12 +1,12 @@
-import { render } from '@testing-library/react-native'
-import { configureStoreApp } from './store'
-import { Provider } from 'react-redux'
+import { render } from "@testing-library/react-native";
+import { configureStoreApp } from "./store";
+import { Provider } from "react-redux";
 
-import { ThemeProvider } from './theme/provider'
-import { createAppTheme } from './theme'
+import { ThemeProvider } from "./theme/provider";
+import { createAppTheme } from "./theme";
 
 interface ProviderProps {
-  children: JSX.Element
+  children: JSX.Element;
 }
 const custonRender = (
   ui: JSX.Element,
@@ -17,14 +17,14 @@ const custonRender = (
     <Provider store={store}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </Provider>
-  )
+  );
 
   return {
     ...render(ui, { wrapper }),
-    store
-  }
-}
+    store,
+  };
+};
 
-export { custonRender as render }
+export { custonRender as render };
 
-export * from '@testing-library/react-native'
+export * from "@testing-library/react-native";

@@ -1,19 +1,19 @@
-import { View, Text, Button } from 'react-native'
-import { useAppNavigation } from '../routes/Routes.navigation'
+import { View, Text, Button } from "react-native";
+import { useAppNavigation } from "../routes/Routes.navigation";
 
 export default function HomeScreen() {
-  const { navigate } = useAppNavigation()
+  const { navigate } = useAppNavigation();
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Home Screen</Text>
 
       <Button
         onPress={() => {
-          navigate('LoginScreen')
+          navigate("LoginScreen");
         }}
         title="Ir para o Login"
       />
     </View>
-  )
+  );
 }

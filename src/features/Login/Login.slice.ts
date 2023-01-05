@@ -1,31 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { Reducer } from '../types'
+import { createSlice } from "@reduxjs/toolkit";
+import { Reducer } from "../types";
 
-import { Login } from './Login.types'
+import { Login } from "./Login.types";
 
 const initialState: Login = {
-  email: '',
-  password: ''
-}
+  email: "",
+  password: "",
+};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const login = () => {}
+const login = () => {};
 
 const setLogin: Reducer<Login> = (state, action) => ({
   ...state,
   ...action.payload,
-  w: 1
-})
+  w: 1,
+});
 
 const slice = createSlice({
-  name: 'login',
+  name: "login",
   initialState,
   reducers: {
     setLogin,
-    login
-  }
-})
+    login,
+  },
+});
 
-export const { actions } = slice
+export const { actions } = slice;
 
-export default slice.reducer
+export default slice.reducer;

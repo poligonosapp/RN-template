@@ -1,8 +1,8 @@
 export type RootStackParamList = {
-  HomeScreen: undefined
-  LoginScreen: undefined
-}
+  HomeScreen: undefined;
+  LoginScreen: undefined;
+};
 
 export type MainStackParamList = {
-  ProfileScreen: undefined
-}
+  ProfileScreen: undefined;
+};

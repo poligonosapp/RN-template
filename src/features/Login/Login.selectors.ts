@@ -1,3 +1,3 @@
-import { State } from '../types'
+import { State } from "../types";
 
-export const selectLogin = (state: State) => state.login
+export const selectLogin = (state: State) => state.login;

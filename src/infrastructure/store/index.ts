@@ -1,1 +1,1 @@
-export { configureStoreApp } from './configureStore'
+export { configureStoreApp } from "./configureStore";

@@ -1,11 +1,13 @@
-import { PayloadAction } from '@reduxjs/toolkit'
-import { Login } from './Login/Login.types'
+import { PayloadAction } from "@reduxjs/toolkit";
+import { Login } from "./Login/Login.types";
 
-export type Reducer<T> = (state: T, action: PayloadAction<T>) => T
+export type Reducer<T> = (state: T, action: PayloadAction<T>) => T;
 
 export interface State {
-  login: Login
+  login: Login;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ReturnCall<T extends (...args: any) => any> = Awaited<ReturnType<T>>
+export type ReturnCall<T extends (...args: any) => any> = Awaited<
+  ReturnType<T>
+>;

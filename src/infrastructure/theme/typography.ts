@@ -3,9 +3,9 @@ import {
   PixelRatio,
   StyleProp,
   TextStyle,
-  ViewStyle
-} from 'react-native'
-import { normalize } from './normalize'
+  ViewStyle,
+} from "react-native";
+import { normalize } from "./normalize";
 import {
   Fonts,
   PaletteColor,
@@ -15,74 +15,74 @@ import {
   ThemeColors,
   ThemePaletteColorBase,
   ThemeTypographyFonts,
-  ThemeTypographies
-} from './types'
+  ThemeTypographies,
+} from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const removeEmpty = (obj: any) => {
   Object.keys(obj).forEach((key) => {
     if (obj[key] === undefined) {
-      delete obj[key]
+      delete obj[key];
     }
-  })
-  return obj
-}
+  });
+  return obj;
+};
 
 export const styleWithoutUndefined = <T>(
   styleObj: StyleProp<ViewStyle | TextStyle | ImageStyle>
 ): T => {
-  return removeEmpty(styleObj)
-}
+  return removeEmpty(styleObj);
+};
 
-const FRONT_SIZE = 12
+const FRONT_SIZE = 12;
 const typographyRem = (n = 1) => {
   const result = Math.round(
     PixelRatio.roundToNearestPixel(normalize(FRONT_SIZE * n))
-  )
-  return result - 2
-}
+  );
+  return result - 2;
+};
 
 const isPaletteColor = (palette?: Palettes): palette is PaletteColor => {
-  return !!(palette as PaletteColor)?.main
-}
+  return !!(palette as PaletteColor)?.main;
+};
 
 function getPaletteColor(palette: ThemeColors, color: ThemeColor) {
-  const somePalette = palette[color]
+  const somePalette = palette[color];
   if (!isPaletteColor(somePalette)) {
-    return undefined
+    return undefined;
   }
-  return somePalette
+  return somePalette;
 }
 
 const getFontSize = (
   typographies: ThemeTypographies,
   variant: ThemeTypographyFonts
 ) => {
-  return typographies[variant]
-}
+  return typographies[variant];
+};
 
 const getFontFamily = (
   typographies: ThemeTypographies,
   variant: ThemeTypographyFonts
 ) => {
-  return typographies.fonts[variant]
-}
+  return typographies.fonts[variant];
+};
 
 const getContrastText = (
   palette: ThemeColors,
   color: ThemeColorBase,
-  colorKey: ThemePaletteColorBase = 'main'
+  colorKey: ThemePaletteColorBase = "main"
 ) => {
-  const paletteColor = getPaletteColor(palette, color)
+  const paletteColor = getPaletteColor(palette, color);
   if (!paletteColor) {
-    return
+    return;
   }
-  const finalColor = paletteColor.contrastText[colorKey]
+  const finalColor = paletteColor.contrastText[colorKey];
   if (!finalColor) {
-    return paletteColor.contrastText.main
+    return paletteColor.contrastText.main;
   }
-  return finalColor
-}
+  return finalColor;
+};
 
 const getTextStyles = (
   typographies: ThemeTypographies,
@@ -94,16 +94,16 @@ const getTextStyles = (
   return styleWithoutUndefined({
     color: getContrastText(palette, color, colorKey),
     fontSize: getFontSize(typographies, variant),
-    fontFamily: getFontFamily(typographies, variant)
-  })
-}
+    fontFamily: getFontFamily(typographies, variant),
+  });
+};
 
-const fonts: Partial<Fonts> = {}
+const fonts: Partial<Fonts> = {};
 
 const createTypography = (
   typographyParam: Partial<ThemeTypographies> = {}
 ): ThemeTypographies => {
-  const remFn = typographyParam.remFn ?? typographyRem
+  const remFn = typographyParam.remFn ?? typographyRem;
   return {
     remFn,
     h1: remFn(typographyParam.h1 ?? 2.8),
@@ -115,9 +115,9 @@ const createTypography = (
     paragraph: remFn(typographyParam.paragraph ?? 1.0),
     fonts: {
       ...fonts,
-      ...typographyParam.fonts
-    }
-  }
-}
+      ...typographyParam.fonts,
+    },
+  };
+};
 
-export { createTypography, getTextStyles }
+export { createTypography, getTextStyles };

@@ -1,29 +1,29 @@
 import {
   NavigationContainer,
-  createNavigationContainerRef
-} from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import HomeScreen from '../Home'
-import Login from '../Login'
-import { RootStackParamList, MainStackParamList } from './Routes.types'
+  createNavigationContainerRef,
+} from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "../Home";
+import Login from "../Login";
+import { RootStackParamList, MainStackParamList } from "./Routes.types";
 
-type NavigationContainerType = RootStackParamList & MainStackParamList
+type NavigationContainerType = RootStackParamList & MainStackParamList;
 
-const RootStack = createNativeStackNavigator<RootStackParamList>()
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-const navigationRef = createNavigationContainerRef<NavigationContainerType>()
+const navigationRef = createNavigationContainerRef<NavigationContainerType>();
 
 const navigationSpreading = () => ({
   ...navigationRef,
   navigate: (name: keyof NavigationContainerType) => {
     if (navigationRef.isReady()) {
-      return navigationRef.navigate(name)
+      return navigationRef.navigate(name);
     }
-    return navigationRef.getState()
-  }
-})
+    return navigationRef.getState();
+  },
+});
 
-export const navigation = navigationSpreading()
+export const navigation = navigationSpreading();
 
 export const AppRoutes = () => {
   return (
@@ -33,5 +33,5 @@ export const AppRoutes = () => {
         <RootStack.Screen name="LoginScreen" component={Login} />
       </RootStack.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};

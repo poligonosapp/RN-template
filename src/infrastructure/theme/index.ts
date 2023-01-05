@@ -1,15 +1,15 @@
-import { createTheme } from './styles'
-import { createTypography } from './typography'
-import { palette } from './palette'
+import { createTheme } from "./styles";
+import { createTypography } from "./typography";
+import { palette } from "./palette";
 
-declare module './types' {
+declare module "./types" {
   interface ThemeColorsBase {
-    neutral?: PaletteColor
+    neutral?: PaletteColor;
   }
 }
 
 const createAppTheme = () => {
-  const fontDefault = 'WorkSans-SemiBold'
+  const fontDefault = "WorkSans-SemiBold";
   return createTheme({
     palette,
     typography: createTypography({
@@ -21,10 +21,10 @@ const createAppTheme = () => {
         h4: fontDefault,
         h5: fontDefault,
         h6: fontDefault,
-        paragraph: fontDefault
-      }
-    })
-  })
-}
+        paragraph: fontDefault,
+      },
+    }),
+  });
+};
 
-export { createAppTheme }
+export { createAppTheme };

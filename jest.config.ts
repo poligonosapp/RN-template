@@ -4,16 +4,16 @@
  */
 
 export default {
-  preset: 'react-native',
+  preset: "react-native",
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.ts(x)',
-    '!<rootDir>/src/(infrastructure|theme)'
+    "<rootDir>/src/**/*.ts(x)",
+    "!<rootDir>/src/(infrastructure|theme)",
   ],
-  setupFilesAfterEnv: ['<rootDir>/src/infrastructure/test.setup.ts'],
-  coverageDirectory: 'coverage',
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  setupFilesAfterEnv: ["<rootDir>/src/infrastructure/test.setup.ts"],
+  coverageDirectory: "coverage",
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
   transformIgnorePatterns: [
-    'node_modules/(?!(@react-native|react-native-animatable|react-native)/)'
-  ]
-}
+    "node_modules/(?!(@react-native|react-native-animatable|react-native)/)",
+  ],
+};
