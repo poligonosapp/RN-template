@@ -3,7 +3,20 @@
  * https://jestjs.io/docs/configuration
  */
 
-export default {
+import type { Config } from 'jest'
+import {defaults} from 'jest-config'
+// import type { Promise } from 'es6-promise'
+
+const config: Config = {
+  verbose: true,
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'mts'],
+};
+
+// export default config;
+
+const Promise = require('es6-promise').Promise;
+
+export default async (): Promise<Config> =>{
   preset: "react-native",
   collectCoverage: true,
   collectCoverageFrom: [
